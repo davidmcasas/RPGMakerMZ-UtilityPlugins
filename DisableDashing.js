@@ -75,15 +75,15 @@
     });
     
     // Handle Dashing
-    const _Game_Player_isDashButtonPressed = Game_Player.prototype.isDashButtonPressed; 
-    Game_Player.prototype.isDashButtonPressed = function() {
+    const _Game_Player_isDashing = Game_Player.prototype.isDashing; 
+    Game_Player.prototype.isDashing = function() {
         if (window[pluginName].forceDashing === "true") {
-            return true
+            return true;
         } else if (window[pluginName].dashingDisabled === "true") {
             return false;
-        } else return _Game_Player_isDashButtonPressed.apply(this, arguments);
+        } else return _Game_Player_isDashing.apply(this, arguments);
     };
-
+    
     // Hide the Always Dash option in the menu
     const _Window_Options_makeCommandList = Window_Options.prototype.makeCommandList;
     Window_Options.prototype.makeCommandList = function() {
